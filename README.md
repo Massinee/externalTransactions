@@ -1,6 +1,18 @@
 ## Teste de Deploy
 
-Para rodar localmente:  
+### Para inciar a aplicação:  
 ``
-ausda 
+npm start
 ``
+
+#### Para rodar testes unitários e verificar cobertura de código:  
+``
+npm test
+``
+
+
+#### Endpoint do Hello World:  
+###### Método ``GET``
+``
+localhost:3000/helloWorld
+``   
