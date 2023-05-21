@@ -12,11 +12,9 @@ describe('Hello World route test', () => {
            url: "/helloWorld"
         });
 
-        const expectedResponse = {
-            response: "Hello World"
-        };
+        const expectedResponse = "Hello World";
 
         expect(response.statusCode).toBe(200);
-        expect(response.json()).toStrictEqual(expectedResponse);
+        expect(response.body).toStrictEqual(expectedResponse);
     })
 })
