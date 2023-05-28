@@ -16,3 +16,8 @@ npm test
 ``
 localhost:3000/helloWorld
 ``   
+
+#### Deploy do Hello World:  
+``
+https://gentle-bee-shrug.cyclic.app/helloWorld
+``   
