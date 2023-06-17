@@ -2,6 +2,8 @@
 
 const emailSchema = require('./schemas/emailSchema');
 const emailService = require('../services/enviarEmailService');
+const validaCartaoSchema = require('./schemas/validaCartaoSchema');
+const validaCartaoService = require('../services/validaCartaoService');
 
 //Todo:
 //ver o que tem que fixar exposto ou nao
@@ -15,7 +17,8 @@ const emailService = require('../services/enviarEmailService');
 
 
 const routes = async (fastify) => {
-    fastify.post('/enviarEmail', emailSchema, emailService.enviarEmail)
+    fastify.post('/enviarEmail', emailSchema, emailService.enviarEmail);
+    fastify.post('/validaCartaoDeCredito', validaCartaoSchema, validaCartaoService.validarCartao);
 }
 
 module.exports = routes;
