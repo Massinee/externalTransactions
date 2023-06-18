@@ -9,10 +9,10 @@ const validaCartaoService = require('../services/validaCartaoService');
 //ver o que tem que fixar exposto ou nao
 //POST /enviarEmail -done
 //POST /cobranca
-//POST /processaCobrancasEmFila
+//POST /processaCobrancasEmFila - tem cron no cyclic!!
 //POST /filaCobranca
 //GET /cobranca/{idCobranca}
-//POST /validaCartaoDeCredito
+//POST /validaCartaoDeCredito - done
 
 
 
