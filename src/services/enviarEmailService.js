@@ -21,7 +21,7 @@ const enviarEmail = async (request, reply) => {
 
     const emailValidated = await validateEmail(email);
 
-    if(emailValidated){
+    if(emailValidated === true){
         const mailOptions = {
             from: EMAIL_BICICLETARIO,
             to: email,
@@ -34,12 +34,6 @@ const enviarEmail = async (request, reply) => {
                 log.info(response.response);
                 return reply.status(200).send("Envio de email solicitado");
 
-            }).catch(err => {
-                log.error({
-                    status: err.response ? err.response.status : err.code,
-                    statusText: err.response ? err.response.statusText : err.message
-                }, "Error trying to send email");
-                return reply.status(500).send("Erro na api de envio de emails");
             });
     } else if (!emailValidated){
         return reply.status(404).send("Email invalido");
@@ -78,7 +72,6 @@ const validateEmailFormat = async (email) => {
         }, REGEX_TIMEOUT);
 
         const result = emailRegex.test(email);
-
         clearTimeout(timer);
         resolve(result);
     });
@@ -86,4 +79,5 @@ const validateEmailFormat = async (email) => {
 
 module.exports = {
     enviarEmail,
+    validateEmailFormat,
 }

@@ -12,9 +12,13 @@ const validarCartao = async (request, reply) => {
     const expirationDateValidation = cardValidator.expirationDate(validade);
     const cvvValidation = cardValidator.cvv(cvv);
 
-    console.log("Cartao: ", cardNumberValidation.isValid);
-    console.log("Validade: ", expirationDateValidation.isValid);
-    console.log("CVV: ", cvvValidation.isValid);
+    const responses = {
+        cardNumberValidation,
+        expirationDateValidation,
+        cvvValidation
+    }
+
+    console.log("Responses: ", responses);
 
     if (!cardNumberValidation.isValid || !expirationDateValidation.isValid || !cvvValidation.isValid) {
         return reply.status(422).send("Dados Inválidos");
