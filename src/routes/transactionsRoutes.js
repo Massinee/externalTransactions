@@ -25,3 +25,5 @@ const routes = async (fastify) => {
 
 module.exports = routes;
 
+
+
