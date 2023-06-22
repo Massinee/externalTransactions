@@ -52,12 +52,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Clone o repositório 
 ```
-$ git clone https://github.com/Massinee/infraestruturaProjeto
-```
-
-- Acesse a pasta do projeto no terminal/cmd 
-```
-$ cd .\infraestruturaProjeto\
+$ git clone https://github.com/Massinee/externalTransactions
 ```
 
 - Instale as dependências com `npm`
@@ -73,7 +68,7 @@ $ npm start
 ```
 
 - Abra o navegador em [`localhost:3000`](http://localhost:3000/helloWorld) com a aplicação.
-#### Endpoint do Hello World:  
+#### Endpoint do Hello World (healthCheck):  
 ###### Método ``GET``
 ```
 localhost:3000/helloWorld
