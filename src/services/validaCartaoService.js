@@ -3,10 +3,8 @@
 const log = require('../utils/logUtils');
 const cardValidator = require('card-validator');
 
-const validarCartao = async (request, reply) => {
+const validarCartao = async (numero, validade, cvv) => {
     log.info('Iniciando a função validarCartao');
-
-    const { numero, validade, cvv } = request.body;
 
     const cardNumberValidation = cardValidator.number(numero);
     const expirationDateValidation = cardValidator.expirationDate(validade);
@@ -21,10 +19,10 @@ const validarCartao = async (request, reply) => {
     console.log("Responses: ", responses);
 
     if (!cardNumberValidation.isValid || !expirationDateValidation.isValid || !cvvValidation.isValid) {
-        return reply.status(422).send("Dados Inválidos");
+        return { statusCode: 422, message: "Dados Inválidos" };
     }
 
-    return reply.status(200).send("Dados Atualizados");
+    return { statusCode: 200, message: "Dados Atualizados" };
 };
 
 module.exports = {

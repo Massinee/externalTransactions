@@ -27,9 +27,9 @@ describe('Credit Card Validation', () => {
         cardValidator.cvv = jest.fn().mockReturnValueOnce({ isValid: true });
 
 
-        const result = await callValidarCartao(request);
+        const response = await callValidarCartao(request);
 
-        expect(result.body).toBe("Dados Atualizados");
+        expect(response.body).toBe("Dados Atualizados");
         expect(cardValidator.number).toHaveBeenCalledWith('1234123412341234');
         expect(cardValidator.expirationDate).toHaveBeenCalledWith('06/27');
         expect(cardValidator.cvv).toHaveBeenCalledWith('123');
@@ -41,8 +41,8 @@ describe('Credit Card Validation', () => {
         cardValidator.cvv = jest.fn().mockReturnValueOnce({ isValid: true });
 
 
-        const result = await callValidarCartao(request);
+        const response = await callValidarCartao(request);
 
-        expect(result.body).toBe("Dados Inválidos");
+        expect(response.body).toBe("Dados Inválidos");
     });
 });

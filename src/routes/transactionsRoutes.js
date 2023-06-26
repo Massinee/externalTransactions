@@ -3,7 +3,7 @@
 const emailSchema = require('./schemas/emailSchema');
 const emailController = require('../controllers/enviarEmailController');
 const validaCartaoSchema = require('./schemas/validaCartaoSchema');
-const validaCartaoService = require('../services/validaCartaoService');
+const validaCartaoController = require('../controllers/validaCartaoController');
 const { cobrancaSchema, processaCobrancasSchema } = require('./schemas/cobrancasSchema');
 const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obterCobranca } = require('../services/cobrancasService');
 
@@ -20,7 +20,7 @@ const routes = async (fastify) => {
     fastify.post('/processaCobrancasEmFila', processaCobrancasSchema, processarCobrancasEmFila);
     fastify.post('/filaCobranca', cobrancaSchema, incluirCobrancaNaFila);
     fastify.get('/cobranca/:id',  obterCobranca);
-    fastify.post('/validaCartaoDeCredito', validaCartaoSchema, validaCartaoService.validarCartao);
+    fastify.post('/validaCartaoDeCredito', validaCartaoSchema, validaCartaoController.validarCartao);
 };
 
 module.exports = routes;
