@@ -9,7 +9,7 @@ const realizarCobranca = async (request, reply) => {
     const { valor, ciclista } = request.body;
     const cobrancaResult = await realizarCobrancaService.realizarCobranca(valor, ciclista);
 
-    return reply.send(cobrancaResult.statusCode).message(cobrancaResult.message);
+    return reply.send(cobrancaResult.message);
 };
 
 const processarCobrancasEmFila = async (request, reply) => {

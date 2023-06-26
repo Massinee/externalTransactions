@@ -5,7 +5,8 @@ const emailController = require('../controllers/enviarEmailController');
 const validaCartaoSchema = require('./schemas/validaCartaoSchema');
 const validaCartaoController = require('../controllers/validaCartaoController');
 const { cobrancaSchema, processaCobrancasSchema } = require('./schemas/cobrancasSchema');
-const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obterCobranca } = require('../controllers/cobrancasController');
+const cobrancasController = require('../controllers/cobrancasController');
+// const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obterCobranca } = require('../controllers/cobrancasController');
 
 //POST /enviarEmail -done
 //POST /cobranca
@@ -16,10 +17,10 @@ const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obter
 
 const routes = async (fastify) => {
     fastify.post('/enviarEmail', emailSchema, emailController.enviarEmail);
-    fastify.post('/cobranca', cobrancaSchema, realizarCobranca);
-    fastify.post('/processaCobrancasEmFila', processaCobrancasSchema, processarCobrancasEmFila);
-    fastify.post('/filaCobranca', cobrancaSchema, incluirCobrancaNaFila);
-    fastify.get('/cobranca/:id',  obterCobranca);
+    fastify.post('/cobranca', cobrancaSchema, cobrancasController.realizarCobranca);
+    fastify.post('/processaCobrancasEmFila', processaCobrancasSchema, cobrancasController.processarCobrancasEmFila);
+    fastify.post('/filaCobranca', cobrancaSchema, cobrancasController.incluirCobrancaNaFila);
+    fastify.get('/cobranca/:id',  cobrancasController.obterCobranca);
     fastify.post('/validaCartaoDeCredito', validaCartaoSchema, validaCartaoController.validarCartao);
 };
 
