@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687218445403" clover="3.2.0">
-  <project timestamp="1687218445404" name="All files">
-    <metrics statements="85" coveredstatements="84" conditionals="20" coveredconditionals="20" methods="13" coveredmethods="12" elements="118" coveredelements="116" complexity="0" loc="85" ncloc="85" packages="6" files="10" classes="10"/>
+<coverage generated="1687740520888" clover="3.2.0">
+  <project timestamp="1687740520888" name="All files">
+    <metrics statements="100" coveredstatements="96" conditionals="18" coveredconditionals="18" methods="15" coveredmethods="11" elements="133" coveredelements="125" complexity="0" loc="100" ncloc="100" packages="7" files="13" classes="13"/>
     <package name="src">
       <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="app.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/app.js">
@@ -21,8 +21,23 @@
         <line num="7" count="2" type="stmt"/>
       </file>
     </package>
+    <package name="src.controllers">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="enviarEmailController.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/controllers/enviarEmailController.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+      </file>
+    </package>
     <package name="src.routes">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="helloWorldRoute.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/routes/helloWorldRoute.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="2" type="stmt"/>
@@ -32,19 +47,31 @@
         <line num="11" count="2" type="stmt"/>
       </file>
       <file name="transactionsRoutes.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/routes/transactionsRoutes.js">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.routes.schemas">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="cobrancasSchema.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/routes/schemas/cobrancasSchema.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
       <file name="emailSchema.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/routes/schemas/emailSchema.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="2" type="stmt"/>
@@ -57,48 +84,48 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="53" coveredstatements="52" conditionals="19" coveredconditionals="19" methods="7" coveredmethods="6"/>
+      <metrics statements="50" coveredstatements="46" conditionals="17" coveredconditionals="17" methods="8" coveredmethods="4"/>
+      <file name="cobrancasService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/cobrancasService.js">
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+      </file>
       <file name="enviarEmailService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/enviarEmailService.js">
-        <metrics statements="39" coveredstatements="38" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="5"/>
+        <metrics statements="27" coveredstatements="27" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="17" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="24" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="38" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="54" count="4" type="stmt"/>
-        <line num="55" count="4" type="stmt"/>
-        <line num="57" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="58" count="3" type="stmt"/>
-        <line num="60" count="3" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="5" type="stmt"/>
-        <line num="68" count="5" type="stmt"/>
-        <line num="70" count="5" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="74" count="5" type="stmt"/>
-        <line num="75" count="5" type="stmt"/>
-        <line num="76" count="5" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="5" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="45" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="48" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
       </file>
       <file name="validaCartaoService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/validaCartaoService.js">
         <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -123,7 +150,7 @@
       <file name="logUtils.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/utils/logUtils.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="7" count="11" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
       </file>
     </package>

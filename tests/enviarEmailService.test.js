@@ -67,7 +67,7 @@ describe('enviarEmail and hello world tests', () => {
     })
 
     test('Should return 422 when email format is not valid', async () => {
-        bodyEnviarEmail.email = "masidow@111";
+        axios.get = jest.fn().mockResolvedValueOnce({status:200, data: { is_syntax: 'False'}});
         const response = await callEnviarEmail(bodyEnviarEmail);
 
         expect(response.statusCode).toBe(422);

@@ -1,7 +1,7 @@
 'use strict'
 
 const emailSchema = require('./schemas/emailSchema');
-const emailService = require('../services/enviarEmailService');
+const emailController = require('../controllers/enviarEmailController');
 const validaCartaoSchema = require('./schemas/validaCartaoSchema');
 const validaCartaoService = require('../services/validaCartaoService');
 const { cobrancaSchema, processaCobrancasSchema } = require('./schemas/cobrancasSchema');
@@ -15,7 +15,7 @@ const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obter
 //POST /validaCartaoDeCredito - done
 
 const routes = async (fastify) => {
-    fastify.post('/enviarEmail', emailSchema, emailService.enviarEmail);
+    fastify.post('/enviarEmail', emailSchema, emailController.enviarEmail);
     fastify.post('/cobranca', cobrancaSchema, realizarCobranca);
     fastify.post('/processaCobrancasEmFila', processaCobrancasSchema, processarCobrancasEmFila);
     fastify.post('/filaCobranca', cobrancaSchema, incluirCobrancaNaFila);

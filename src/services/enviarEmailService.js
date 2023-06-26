@@ -6,22 +6,13 @@ const axios = require('axios');
 
 const EMAIL_BICICLETARIO = process.env.EMAIL_BICICLETARIO || "bicicletariogrupoa@gmail.com";
 const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD || "xpnbyaknodstgici";
-const REGEX_TIMEOUT = process.env.REGEX_TIMEOUT || 5000;
 
-const enviarEmail = async (request, reply) => {
+const enviarEmail = async (email, assunto, mensagem) => {
     log.info("Iniciando a função enviarEmail");
 
-    const { email, assunto, mensagem } = request.body;
-    const isValid = await validateEmailFormat(email);
+    const validateEmailResponse = await validateEmail(email);
 
-    if (!isValid) {
-        log.error("Formato de email inválido");
-        return reply.status(422).send("Email com formato inválido");
-    }
-
-    const emailValidated = await validateEmail(email);
-
-    if(emailValidated === true){
+    if(validateEmailResponse === true){
         const mailOptions = {
             from: EMAIL_BICICLETARIO,
             to: email,
@@ -32,13 +23,10 @@ const enviarEmail = async (request, reply) => {
         return transporter.sendMail(mailOptions)
             .then(response => {
                 log.info(response.response);
-                return reply.status(200).send("Envio de email solicitado");
-
+                return { statusCode: 200, message: "Envio de email solicitado" };
             });
-    } else if (!emailValidated){
-        return reply.status(404).send("Email invalido");
     } else {
-        return reply.status(500).send(emailValidated);
+        return validateEmailResponse;
     }
 };
 
@@ -57,27 +45,19 @@ const validateEmail = async (email) => {
     if (response.status === 200) {
         const result = response.data;
 
-        return (result.is_verified === 'True');
+        if(result.is_syntax === 'False') {
+            return { statusCode: 422, message: "Email com formato inválido" };
+        }
+        if(result.is_verified === 'True') {
+            return true;
+        } else {
+            return { statusCode: 404, message: "Email inválido" };
+        }
     } else {
-        return 'Erro na api de verificação de emails';
+        return { statusCode: 500, message: "Erro na api de validação" };
     }
-};
-
-const validateEmailFormat = async (email) => {
-    return new Promise((resolve, reject) => {
-        const emailRegex = new RegExp(/^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9.-]+[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})$/, "gm");
-
-        const timer = setTimeout(() => {
-            resolve(false);
-        }, REGEX_TIMEOUT);
-
-        const result = emailRegex.test(email);
-        clearTimeout(timer);
-        resolve(result);
-    });
 };
 
 module.exports = {
     enviarEmail,
-    validateEmailFormat,
 }
