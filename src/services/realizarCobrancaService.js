@@ -123,4 +123,7 @@ const buildResponse = async (status, valor, ciclista, horaSolicitacao) => {
 
 module.exports = {
     realizarCobranca,
+    createCustomer,
+    addCardToCustomer,
+    chargeCustomer,
 }

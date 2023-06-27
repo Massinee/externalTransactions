@@ -9,22 +9,22 @@ const realizarCobranca = async (request, reply) => {
     const { valor, ciclista } = request.body;
     const cobrancaResult = await realizarCobrancaService.realizarCobranca(valor, ciclista);
 
-    return reply.send(cobrancaResult.message);
+    return reply.status(cobrancaResult.statusCode).send(cobrancaResult.message);
 };
 
 const processarCobrancasEmFila = async (request, reply) => {
 
-    return reply.send(200).message();
+    return reply.status().send();
 };
 
 const incluirCobrancaNaFila = async (request, reply) => {
 
-    return reply.send(200).message();
+    return reply.status().send();
 };
 
 const obterCobranca = async (request, reply) => {
 
-    return reply.send(200).message();
+    return reply.status().send();
 };
 
 module.exports = {
