@@ -4,6 +4,7 @@ const log = require('../utils/logUtils');
 const realizarCobrancaService = require('../services/realizarCobrancaService');
 const historicoCobrancas = require('../historicoCobrancas');
 const filaCobrancaService = require("../services/filaCobrancaService");
+const { processaFilaCobrancas } = require("../services/processaCobrancasEmFilaService");
 
 const realizarCobranca = async (request, reply) => {
     log.info("Rota cobrança chamada");
@@ -16,7 +17,8 @@ const realizarCobranca = async (request, reply) => {
 
 const processarCobrancasEmFila = async (request, reply) => {
 
-    return reply.status().send();
+    const processamentoResult = await processaFilaCobrancas();
+    return reply.status(processamentoResult.statusCode).send(processamentoResult.message);
 };
 
 const incluirCobrancaNaFila = async (request, reply) => {

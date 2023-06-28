@@ -7,18 +7,20 @@ const uuid = require('uuid');
 const enviarEmail = require('../services/enviarEmailService');
 const historicoCobrancas = require('../historicoCobrancas');
 
+let infoPagamentoCiclista;
+
 const realizarCobranca = async (valor, ciclistaId) => {
     log.info("Iniciando a função realizarCobrança");
 
     const valorEmCentavos = (valor*100);
-    const ciclista = await getCiclistaInfo(ciclistaId);
-    const splitDate = ciclista.meioDePagamento.validade.split("-");
+    infoPagamentoCiclista = await getCiclistaInfo(ciclistaId);
+    const splitDate = infoPagamentoCiclista.meioDePagamento.validade.split("-");
     const mes = parseInt(splitDate[1], 10);
     const ano = parseInt(splitDate[0], 10);
     const horaSolicitacao = new Date().toISOString();
 
     try {
-        const customerId = await createCustomer(ciclista.email, ciclista.nome);
+        const customerId = await createCustomer(infoPagamentoCiclista.email, infoPagamentoCiclista.nome);
         // const tokenId = await createToken('4242424242424242', mes, ano, ciclista.meioDePagamento.cvv);
         const cardId = await addCardToCustomer(customerId, 'tok_visa');
         const charge = await chargeCustomer(customerId, cardId, valorEmCentavos); // Valor em centavos (R$10,00)
@@ -26,7 +28,7 @@ const realizarCobranca = async (valor, ciclistaId) => {
 
         // await enviarEmail.enviarEmail(ciclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
         // await enviarEmail.enviarEmail('joaoprferreira@edu.unirio.br', 'Recibo Transação Bicicletário', charge.receipt_url);
-        const message = await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao);
+        const message = await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao, false);
         historicoCobrancas.cobrancas.push(message);
         return { statusCode: 200, message };
 
@@ -112,8 +114,8 @@ const chargeCustomer = async (customerId, tokenId, amount, email) => {
 };
 
 
-const buildResponse = async (status, valor, ciclista, horaSolicitacao) => {
-    return {
+const buildResponse = async (status, valor, ciclista, horaSolicitacao, incluiCartao) => {
+    const response = {
         id: uuid.v4(),
         status,
         horaSolicitacao,
@@ -121,6 +123,11 @@ const buildResponse = async (status, valor, ciclista, horaSolicitacao) => {
         valor,
         ciclista
     }
+    if(incluiCartao) {
+        response.ultimos4Digitos = infoPagamentoCiclista.meioDePagamento.numero.slice(-4);
+        response.email = infoPagamentoCiclista.email;
+    }
+    return response;
 };
 
 module.exports = {

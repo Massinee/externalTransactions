@@ -8,7 +8,7 @@ const filaCobranca = async (valor, ciclista) => {
     log.info("Iniciando a função para incluir cobrança na fila");
     try {
         const horaSolicitacao = new Date().toISOString();
-        const message = await buildResponse("FALHA", valor, ciclista, horaSolicitacao);
+        const message = await buildResponse("FALHA", valor, ciclista, horaSolicitacao, false);
         devedores.push({valor, ciclista});
         console.log("$$$$$$$$$$$$$$$$", devedores)
 
