@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/formbody": "^7.4.0",
     "axios": "^1.4.0",
     "card-validator": "^8.1.1",
     "dotenv": "^16.0.3",
