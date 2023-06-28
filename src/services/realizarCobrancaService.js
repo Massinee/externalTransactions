@@ -14,20 +14,15 @@ const realizarCobranca = async (valor, ciclistaId) => {
 
     const valorEmCentavos = (valor*100);
     infoPagamentoCiclista = await getCiclistaInfo(ciclistaId);
-    const splitDate = infoPagamentoCiclista.meioDePagamento.validade.split("-");
-    const mes = parseInt(splitDate[1], 10);
-    const ano = parseInt(splitDate[0], 10);
     const horaSolicitacao = new Date().toISOString();
 
     try {
         const customerId = await createCustomer(infoPagamentoCiclista.email, infoPagamentoCiclista.nome);
-        // const tokenId = await createToken('4242424242424242', mes, ano, ciclista.meioDePagamento.cvv);
         const cardId = await addCardToCustomer(customerId, 'tok_visa');
-        const charge = await chargeCustomer(customerId, cardId, valorEmCentavos); // Valor em centavos (R$10,00)
+        const charge = await chargeCustomer(customerId, cardId, valorEmCentavos);
         console.log('Pagamento efetuado');
 
-        // await enviarEmail.enviarEmail(ciclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
-        // await enviarEmail.enviarEmail('joaoprferreira@edu.unirio.br', 'Recibo Transação Bicicletário', charge.receipt_url);
+        await enviarEmail.enviarEmail(ciclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
         const message = await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao, false);
         historicoCobrancas.cobrancas.push(message);
         return { statusCode: 200, message };
@@ -78,26 +73,6 @@ const addCardToCustomer = async (customerId, tokenId) => {
         throw new Error('Erro ao adicionar o cartão ao cliente');
     }
 };
-
-// const createToken = async (cardNumber, expMonth, expYear, cvc) => {
-//     try {
-//         const token = await stripe.tokens.create({
-//
-//             card: {
-//                 number: cardNumber,
-//                 exp_month: expMonth,
-//                 exp_year: expYear,
-//                 cvc: cvc,
-//             },
-//         });
-//
-//         console.log("#$$$$$$$$$$$$", token)
-//         return token.id;
-//     } catch (error) {
-//         console.log(error);
-//         throw new Error('Erro ao criar o token');
-//     }
-// };
 
 const chargeCustomer = async (customerId, tokenId, amount, email) => {
     try {
