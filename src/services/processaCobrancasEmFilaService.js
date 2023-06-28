@@ -8,7 +8,7 @@ const enviarEmail = require('../services/enviarEmailService');
 const processaFilaCobrancas = async () => {
     log.info("Iniciando a função para incluir cobrança na fila");
     try {
-        if(devedores === []){
+        if(devedores.length === 0){
             return { statusCode: 200, message: "Não há cobranças pendentes a serem feitas" };
         }
         const horaSolicitacao = new Date().toISOString();
