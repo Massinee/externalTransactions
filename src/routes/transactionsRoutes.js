@@ -9,10 +9,10 @@ const cobrancasController = require('../controllers/cobrancasController');
 // const { realizarCobranca, processarCobrancasEmFila, incluirCobrancaNaFila, obterCobranca } = require('../controllers/cobrancasController');
 
 //POST /enviarEmail -done
-//POST /cobranca
+//POST /cobranca -done
 //POST /processaCobrancasEmFila - tem cron no cyclic!!
 //POST /filaCobranca
-//GET /cobranca/{idCobranca}
+//GET /cobranca/{idCobranca} - done
 //POST /validaCartaoDeCredito - done
 
 const routes = async (fastify) => {

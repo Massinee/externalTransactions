@@ -5,6 +5,7 @@ const axios = require('axios');
 const stripe = require('stripe')('sk_test_51NN4YADiqgi4sgZFfMLPTurD8wFmFLJ9wCZx4GlWEaBJ0FmpEUPvDJpGCLlxHlNOOXwV7jjdqThZ4BZI8GUpy2G900YA5TNuDa');
 const uuid = require('uuid');
 const enviarEmail = require('../services/enviarEmailService');
+const historicoCobrancas = require('../historicoCobrancas');
 
 const realizarCobranca = async (valor, ciclistaId) => {
     log.info("Iniciando a função realizarCobrança");
@@ -25,8 +26,9 @@ const realizarCobranca = async (valor, ciclistaId) => {
 
         // await enviarEmail.enviarEmail(ciclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
         // await enviarEmail.enviarEmail('joaoprferreira@edu.unirio.br', 'Recibo Transação Bicicletário', charge.receipt_url);
-
-        return { statusCode: 200, message: await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao)};
+        const message = await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao);
+        historicoCobrancas.cobrancas.push(message);
+        return { statusCode: 200, message };
 
     } catch (err) {
         log.error({
