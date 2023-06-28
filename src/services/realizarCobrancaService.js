@@ -128,4 +128,5 @@ module.exports = {
     createCustomer,
     addCardToCustomer,
     chargeCustomer,
+    buildResponse,
 }

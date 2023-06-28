@@ -3,6 +3,7 @@
 const log = require('../utils/logUtils');
 const realizarCobrancaService = require('../services/realizarCobrancaService');
 const historicoCobrancas = require('../historicoCobrancas');
+const filaCobrancaService = require("../services/filaCobrancaService");
 
 const realizarCobranca = async (request, reply) => {
     log.info("Rota cobrança chamada");
@@ -20,7 +21,10 @@ const processarCobrancasEmFila = async (request, reply) => {
 
 const incluirCobrancaNaFila = async (request, reply) => {
 
-    return reply.status().send();
+    const { valor, ciclista } = request.body;
+    const inclusaoResult = await filaCobrancaService.filaCobranca(valor, ciclista);
+
+    return reply.status(inclusaoResult.statusCode).send(inclusaoResult.message);
 };
 
 const obterCobranca = async (request, reply) => {
