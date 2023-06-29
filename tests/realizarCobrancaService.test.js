@@ -33,7 +33,6 @@ describe('realizar cobrança tests', () => {
 
     test('Should return 422 when call cobrança route', async () => {
         enviarEmail.mockRejectedValueOnce({});
-        // realizarCobrancaService.realizarCobranca = jest.fn().mockRejectedValueOnce({statusCode: 422, message: "ok"});
         const response = await callRealizarCobranca(bodyRequest);
 
         expect(response.statusCode).toBe(500);
