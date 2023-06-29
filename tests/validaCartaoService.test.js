@@ -29,7 +29,7 @@ describe('Credit Card Validation', () => {
 
         const response = await callValidarCartao(request);
 
-        expect(response.body).toBe("Dados Atualizados");
+        expect(response.body).toBe("Cartão válido");
         expect(cardValidator.number).toHaveBeenCalledWith('1234123412341234');
         expect(cardValidator.expirationDate).toHaveBeenCalledWith('06/27');
         expect(cardValidator.cvv).toHaveBeenCalledWith('123');

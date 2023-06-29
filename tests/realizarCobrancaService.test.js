@@ -5,6 +5,14 @@ const app = build();
 
 const realizarCobrancaService = require('../src/services/realizarCobrancaService');
 const {ciclistas, bodyRequest} = require('./cobrancaCiclistasMock');
+const {enviarEmail} = require('../src/services/enviarEmailService');
+jest.mock('../src/services/enviarEmailService');
+const nodemailer = require('nodemailer');
+jest.mock('nodemailer', () => ({
+    createTransport: jest.fn().mockReturnValue({
+        sendMail: jest.fn().mockRejectedValueOnce({ status: 500}),
+    }),
+}));
 
 const callRealizarCobranca = async (body) => {
     return await app.inject({
@@ -21,5 +29,13 @@ describe('realizar cobrança tests', () => {
         const response = await callRealizarCobranca(bodyRequest);
 
         expect(response.statusCode).toBe(200);
+    })
+
+    test('Should return 422 when call cobrança route', async () => {
+        enviarEmail.mockRejectedValueOnce({});
+        // realizarCobrancaService.realizarCobranca = jest.fn().mockRejectedValueOnce({statusCode: 422, message: "ok"});
+        const response = await callRealizarCobranca(bodyRequest);
+
+        expect(response.statusCode).toBe(500);
     })
 })

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688020127371" clover="3.2.0">
-  <project timestamp="1688020127371" name="All files">
+<coverage generated="1688047916873" clover="3.2.0">
+  <project timestamp="1688047916873" name="All files">
     <metrics statements="217" coveredstatements="208" conditionals="30" coveredconditionals="30" methods="29" coveredmethods="29" elements="276" coveredelements="267" complexity="0" loc="217" ncloc="217" packages="7" files="20" classes="20"/>
     <package name="src">
       <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
@@ -42,10 +42,10 @@
         <line num="6" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
         <line num="18" count="6" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
@@ -281,9 +281,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="logUtils.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/utils/logUtils.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="7" count="46" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="7" count="48" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
       </file>
     </package>
     <package name="tests">
