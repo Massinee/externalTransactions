@@ -22,7 +22,7 @@ const realizarCobranca = async (valor, ciclistaId) => {
         const charge = await chargeCustomer(customerId, cardId, valorEmCentavos);
         console.log('Pagamento efetuado');
 
-        await enviarEmail.enviarEmail(ciclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
+        await enviarEmail.enviarEmail(infoPagamentoCiclista.email, 'Recibo Transação Bicicletário', charge.receipt_url);
         const message = await buildResponse("PAGA", valor, ciclistaId, horaSolicitacao, false);
         historicoCobrancas.cobrancas.push(message);
         return { statusCode: 200, message };

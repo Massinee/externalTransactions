@@ -22,7 +22,7 @@ const validarCartao = async (numero, validade, cvv) => {
         return { statusCode: 422, message: "Dados Inválidos" };
     }
 
-    return { statusCode: 200, message: "Dados Atualizados" };
+    return { statusCode: 200, message: "Cartão válido" };
 };
 
 module.exports = {

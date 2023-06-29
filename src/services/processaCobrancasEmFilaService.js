@@ -6,7 +6,7 @@ let { devedores, cobrancasReprocessadasSucesso } = require('../filaCobranca');
 const enviarEmail = require('../services/enviarEmailService');
 
 const processaFilaCobrancas = async () => {
-    log.info("Iniciando a função para incluir cobrança na fila");
+    log.info("Iniciando a função para processar a fila de cobranças");
     try {
         if(devedores.length === 0){
             return { statusCode: 200, message: "Não há cobranças pendentes a serem feitas" };
@@ -20,7 +20,7 @@ const processaFilaCobrancas = async () => {
                    const response = await buildResponse("PAGA", cobranca.valor, cobranca.ciclista, horaSolicitacao, true);
                    const msg = `BICICLETISTA! 
                                 Estamos passando para avisar que foi feita uma cobrança de R$ ${cobranca.valor} reais, no cartão de final ${response.ultimos4Digitos} referente ao seu último aluguel.`
-                   await enviarEmail.enviarEmail('marianamassine@gmail.com', "Cobrança atrasada", msg);
+                   await enviarEmail.enviarEmail(response.email, "Cobrança atrasada", msg);
                    cobrancasReprocessadasSucesso.push(response);
                });
         }
