@@ -4,6 +4,7 @@ const { build } = require('../src/app');
 const app = build();
 let { devedores } = require('../src/filaCobranca');
 const { processaFilaCobrancas } = require('../src/services/processaCobrancasEmFilaService');
+const getCiclistasApi = require('../src/apis/getCiclistasApi');
 
 const callProcessarFila = async () => {
     return await app.inject({

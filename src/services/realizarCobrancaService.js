@@ -6,6 +6,7 @@ const stripe = require('stripe')('sk_test_51NN4YADiqgi4sgZFfMLPTurD8wFmFLJ9wCZx4
 const uuid = require('uuid');
 const enviarEmail = require('../services/enviarEmailService');
 const historicoCobrancas = require('../historicoCobrancas');
+const getCiclistasApi = require("../apis/getCiclistasApi");
 
 let infoPagamentoCiclista;
 
@@ -38,7 +39,8 @@ const realizarCobranca = async (valor, ciclistaId) => {
 
 const getCiclistaInfo = async (ciclistaId) => {
     log.info("Acessando banco de ciclistas");
-    const ciclistas = await axios.get('https://sore-jade-clownfish-veil.cyclic.app/ciclistas');
+    const ciclistas = await getCiclistasApi.getCiclistas();
+    console.log("@@@@@@aaaaaaaaaaaaaaaaaaaaaaa", ciclistas)
     const ciclista = ciclistas.data.find(c => c.id === ciclistaId);
     return {
         nome: ciclista.nome,
