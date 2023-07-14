@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689115805906" clover="3.2.0">
-  <project timestamp="1689115805907" name="All files">
+<coverage generated="1689298055317" clover="3.2.0">
+  <project timestamp="1689298055317" name="All files">
     <metrics statements="231" coveredstatements="219" conditionals="30" coveredconditionals="30" methods="32" coveredmethods="31" elements="293" coveredelements="280" complexity="0" loc="231" ncloc="231" packages="8" files="21" classes="21"/>
     <package name="src">
       <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
@@ -65,8 +65,8 @@
         <line num="13" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="18" count="6" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="24" count="6" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -206,10 +206,10 @@
         <line num="5" count="6" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
         <line num="8" count="6" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
@@ -302,7 +302,7 @@
       <file name="logUtils.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/utils/logUtils.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="7" type="stmt"/>
-        <line num="7" count="54" type="stmt"/>
+        <line num="7" count="53" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
       </file>
     </package>

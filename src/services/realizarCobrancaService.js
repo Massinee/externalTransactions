@@ -40,7 +40,6 @@ const realizarCobranca = async (valor, ciclistaId) => {
 const getCiclistaInfo = async (ciclistaId) => {
     log.info("Acessando banco de ciclistas");
     const ciclistas = await getCiclistasApi.getCiclistas();
-    console.log("@@@@@@aaaaaaaaaaaaaaaaaaaaaaa", ciclistas)
     const ciclista = ciclistas.data.find(c => c.id === ciclistaId);
     return {
         nome: ciclista.nome,
