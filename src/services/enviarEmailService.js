@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const validateEmail = async (email) => {
-    const apiKey = '6MUMNPAB5397UVBPYOSM';
+    const apiKey = 'NUVGBKYM2KP6X3LAESYN';
     const response = await axios.get(`https://api.mailboxvalidator.com/v1/validation/single?key=${apiKey}&email=${email}`);
 
     if (response.status === 200) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689298055317" clover="3.2.0">
-  <project timestamp="1689298055317" name="All files">
-    <metrics statements="231" coveredstatements="219" conditionals="30" coveredconditionals="30" methods="32" coveredmethods="31" elements="293" coveredelements="280" complexity="0" loc="231" ncloc="231" packages="8" files="21" classes="21"/>
+<coverage generated="1689304056877" clover="3.2.0">
+  <project timestamp="1689304056877" name="All files">
+    <metrics statements="230" coveredstatements="218" conditionals="30" coveredconditionals="30" methods="32" coveredmethods="31" elements="292" coveredelements="279" complexity="0" loc="230" ncloc="230" packages="8" files="21" classes="21"/>
     <package name="src">
       <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="app.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/app.js">
@@ -151,7 +151,7 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="129" coveredstatements="120" conditionals="27" coveredconditionals="27" methods="16" coveredmethods="16"/>
+      <metrics statements="128" coveredstatements="119" conditionals="27" coveredconditionals="27" methods="16" coveredmethods="16"/>
       <file name="enviarEmailService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/enviarEmailService.js">
         <metrics statements="27" coveredstatements="27" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
         <line num="3" count="6" type="stmt"/>
@@ -225,7 +225,7 @@
         <line num="38" count="6" type="stmt"/>
       </file>
       <file name="realizarCobrancaService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/realizarCobrancaService.js">
-        <metrics statements="53" coveredstatements="45" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+        <metrics statements="52" coveredstatements="44" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
         <line num="3" count="6" type="stmt"/>
         <line num="4" count="6" type="stmt"/>
         <line num="5" count="6" type="stmt"/>
@@ -252,33 +252,32 @@
         <line num="40" count="6" type="stmt"/>
         <line num="41" count="3" type="stmt"/>
         <line num="42" count="3" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="44" count="6" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="52" count="6" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
         <line num="53" count="3" type="stmt"/>
-        <line num="54" count="3" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="6" type="stmt"/>
+        <line num="65" count="6" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
         <line num="67" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
+        <line num="71" count="3" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="79" count="6" type="stmt"/>
+        <line num="78" count="6" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
         <line num="80" count="3" type="stmt"/>
-        <line num="81" count="3" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="94" count="6" type="stmt"/>
-        <line num="95" count="8" type="stmt"/>
-        <line num="103" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="93" count="6" type="stmt"/>
+        <line num="94" count="8" type="stmt"/>
+        <line num="102" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="3" type="stmt"/>
         <line num="104" count="3" type="stmt"/>
-        <line num="105" count="3" type="stmt"/>
-        <line num="107" count="8" type="stmt"/>
-        <line num="110" count="6" type="stmt"/>
+        <line num="106" count="8" type="stmt"/>
+        <line num="109" count="6" type="stmt"/>
       </file>
       <file name="validaCartaoService.js" path="/home/mariana/Documents/bsi/PM/externalTransactions/src/services/validaCartaoService.js">
         <metrics statements="13" coveredstatements="13" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
