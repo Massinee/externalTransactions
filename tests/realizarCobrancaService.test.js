@@ -41,7 +41,6 @@ describe('realizar cobrança tests', () => {
     })
 
     test('Should return 422 when call cobrança route and getCiclistas fail', async () => {
-        // getCiclistasApi.getCiclistas = jest.fn().mockRejectedValueOnce({status:422});
         jest.mock('axios');
         axios.get = jest.fn().mockRejectedValue({
             response:
