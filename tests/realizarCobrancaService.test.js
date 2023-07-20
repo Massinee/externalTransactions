@@ -2,12 +2,14 @@
 
 const { build } = require('../src/app');
 const app = build();
+const axios = require('axios');
 
 const realizarCobrancaService = require('../src/services/realizarCobrancaService');
 const {ciclistas, bodyRequest} = require('./cobrancaCiclistasMock');
 const {enviarEmail} = require('../src/services/enviarEmailService');
 jest.mock('../src/services/enviarEmailService');
-const nodemailer = require('nodemailer');
+const getCiclistasApi = require("../src/apis/getCiclistasApi");
+
 jest.mock('nodemailer', () => ({
     createTransport: jest.fn().mockReturnValue({
         sendMail: jest.fn().mockRejectedValueOnce({ status: 500}),
@@ -25,7 +27,6 @@ const callRealizarCobranca = async (body) => {
 describe('realizar cobrança tests', () => {
 
     test('Should return 200 when call cobrança route', async () => {
-        realizarCobrancaService.realizarCobranca = jest.fn().mockResolvedValueOnce({statusCode: 200, message: "ok"});
         const response = await callRealizarCobranca(bodyRequest);
 
         expect(response.statusCode).toBe(200);
@@ -35,6 +36,22 @@ describe('realizar cobrança tests', () => {
         enviarEmail.mockRejectedValueOnce({});
         const response = await callRealizarCobranca(bodyRequest);
 
-        expect(response.statusCode).toBe(500);
+        expect(response.statusCode).toBe(422);
+        expect(response.body).toBe('Dados Inválidos');
+    })
+
+    test('Should return 422 when call cobrança route and getCiclistas fail', async () => {
+        // getCiclistasApi.getCiclistas = jest.fn().mockRejectedValueOnce({status:422});
+        jest.mock('axios');
+        axios.get = jest.fn().mockRejectedValue({
+            response:
+                {
+                    status: 422,
+                    data: "Error message."
+                }
+        });
+        const response = await callRealizarCobranca(bodyRequest);
+
+        expect(response.statusCode).toBe(422);
     })
 })

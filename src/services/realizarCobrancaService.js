@@ -14,10 +14,11 @@ const realizarCobranca = async (valor, ciclistaId) => {
     log.info("Iniciando a função realizarCobrança");
 
     const valorEmCentavos = (valor*100);
-    infoPagamentoCiclista = await getCiclistaInfo(ciclistaId);
     const horaSolicitacao = new Date().toISOString();
 
     try {
+        infoPagamentoCiclista = await getCiclistaInfo(ciclistaId);
+
         const customerId = await createCustomer(infoPagamentoCiclista.email, infoPagamentoCiclista.nome);
         const cardId = await addCardToCustomer(customerId, 'tok_visa');
         const charge = await chargeCustomer(customerId, cardId, valorEmCentavos);
@@ -32,7 +33,7 @@ const realizarCobranca = async (valor, ciclistaId) => {
         log.error({
             statusCode: err.statusCode,
             statusMessage: err.message
-        }, 'Erro ao chamar Stripe para tarifar o usuário.');
+        }, 'Erro no processo de cobrança do usuário.');
         return { statusCode: 422, message: "Dados Inválidos" };
     }
 };
